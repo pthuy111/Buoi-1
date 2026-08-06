@@ -456,7 +456,7 @@
    ============================================================ */
 const CONFIG = {
   // Mật khẩu để sinh viên truy cập bài làm (giảng viên cung cấp cho SV trong buổi thi)
-  password: "123",
+  password: "0708",
 
   // Thời gian tối đa cho MỖI câu hỏi (đơn vị: giây)
   timePerQuestion: 30,
@@ -472,7 +472,7 @@ const CONFIG = {
 
   // Mã đề: đổi chuỗi này (vd sang "de-thi-02") khi đổi bộ câu hỏi cho chương khác,
   // để "làm mới" giới hạn 1 lần/thiết bị đang lưu trên trình duyệt của mã đề cũ.
-  examId: "test",
+  examId: "B1",
 
   // Link Web App (Google Apps Script) để tự động gửi điểm về Google Sheet ngay khi SV nộp bài.
   // Để trống "" nếu chưa thiết lập — công cụ vẫn chạy bình thường, chỉ không gửi điểm tự động.
@@ -493,35 +493,75 @@ const CONFIG = {
    Có thể thêm/bớt/sửa số lượng câu hỏi tùy ý.
    ============================================================ */
 const QUESTIONS = [
+ // Câu 1
   {
     type: "single",
-    question: "Sự khác biệt cơ bản nhất về mục tiêu giữa Thống kê mô tả và Thống kê suy luận là gì?",
-    options: ["Thống kê mô tả chỉ xử lý dữ liệu định tính, trong khi Thống kê suy luận chỉ làm việc với dữ liệu định lượng.", "Thống kê mô tả tập trung vào việc thu thập, tổ chức, tóm tắt và trình bày dữ liệu hiện có; trong khi Thống kê suy luận sử dụng dữ liệu mẫu để đưa ra các ước lượng, kiểm định giả thuyết, tìm kiếm mối quan hệ và dự báo về tổng thể", "Thống kê mô tả luôn đưa ra kết luận chính xác tuyệt đối về toàn bộ tổng thể, còn Thống kê suy luận chỉ mang tính phỏng đoán cá nhân", "Thống kê mô tả bắt buộc phải sử dụng toàn bộ tổng thể để phân tích, còn Thống kê suy luận bắt buộc phải dùng các phương pháp chọn mẫu phi xác suất"],
-    correct: [1]
-  },
-  {
-    type: "single",
-    question: "Một công ty kiểm toán tiến hành khảo sát thời gian hoàn thành công việc của một mẫu gồm 20 khách hàng và báo cáo rằng: Thời gian kiểm toán trung bình của nhóm này là 19 ngày. Việc tính toán và công bố con số trung bình này cho nhóm đối tượng được khảo sát thuộc về phạm vi của:",
-    options: ["Thống kê mô tả", "Thống kê suy luận", "Kiểm định giả thuyết", "Ước lượng tham số tổng thể"],
+    question: "Rủi ro được định nghĩa là gì?",
+    options: ["Những sự kiện xảy ra ngoài kỳ vọng gây ảnh hưởng tiêu cực đến việc đạt được các mục tiêu của tổ chức", "Những sự kiện xảy ra đúng kỳ vọng và gây ảnh hưởng tích cực đến việc vận hành doanh nghiệp", "Những sự cố phá hoại hệ thống thông tin bắt buộc phải do con người cố ý thực hiện", "Sự suy giảm lợi nhuận của doanh nghiệp do các yếu tố cạnh tranh lành mạnh trên thị trường"],
     correct: [0]
   },
+  // Câu 2
   {
     type: "single",
-    question: "Một quản lý siêu thị tiến hành ghi nhận doanh thu hàng ngày của tháng trước, sau đó vẽ biểu đồ thể hiện lượng nước ngọt bán được của từng thương hiệu nhằm báo cáo cho ban giám đốc. Việc tổng hợp, trình bày và trực quan hóa dữ liệu thực tế đã qua này thuộc phạm vi của:",
-    options: ["Thống kê mô tả", "Thống kê suy luận", "Dự báo", "Phân tích tương quan"],
+    question: "Trong tuần làm việc đầu tiên, một nhân viên bán hàng mới do chưa được đào tạo kỹ về chính sách giá đã tính sai chiết khấu cho một khách hàng lớn, làm công ty thiệt hại doanh thu. Sự kiện này thuộc nguồn gốc rủi ro nào?",
+    options: ["Hành vi vô ý", "Hành vi cố ý", "Thảm họa thiên nhiên và chính trị", "Lỗi phần mềm và sự cố thiết bị"],
     correct: [0]
   },
+  // Câu 3
   {
+    type: "single",
+    question: "Hành vi gian lận được định nghĩa là gì?",
+    options: ["Hành vi cố ý tuyên bố sai sự thật hoặc trình bày sai lệch một cách trọng yếu nhằm đạt được sự tin cậy của người khác, gây tổn thất cho cá nhân hoặc tổ chức", "Những sai sót ngẫu nhiên trong việc hạch toán kế toán gây ra sự sai lệch trên báo cáo tài chính", "Việc lạm dụng tài nguyên của tổ chức cho mục đích cá nhân nhưng không gây ra thiệt hại tài chính", "Những quyết định kinh doanh sai lầm của ban quản lý làm suy giảm giá trị cổ phiếu của công ty"],
+    correct: [0]
+  },
+  // Câu 4
+  {
+    type: "single",
+    question: "Gian lận nghề nghiệp được phân loại gồm:",
+    options: ["Biển thủ tài sản, Gian lận báo cáo tài chính, Tham nhũng", "Gian lận đầu vào, gian lận xử lý, gian lận đầu ra", "Thảm họa thiên nhiên, lỗi phần mềm, hành vi cố ý", "Áp lực, Cơ hội, Sự hợp lý hóa"],
+    correct: [0]
+  },
+  // Câu 5
+   {
+    type: "single",
+    question: "Ông Bình là Trưởng phòng mua sắm của một công ty sản xuất. Ông tự thành lập một công ty dịch vụ “vỏ bọc” (đứng tên một người bạn), hàng tháng tự lập và duyệt các hóa đơn thanh toán cho dịch vụ tư vấn không có thực để chuyển tiền từ tài khoản công ty sang công ty này. Hành vi của ông Bình thuộc nhóm gian lận nào?",
+    options: ["Biển thủ tài sản", "Tham nhũng", "Gian lận báo cáo tài chính", "Gian lận hệ thống"],
+    correct: [0]
+  },
+   // Câu 6
+   {
+    type: "single",
+    question: "Theo lý thuyết tam giác gian lận, hành vi gian lận chỉ xảy ra khi hội tụ đủ 3 yếu tố nào sau đây?",
+    options: ["Áp lực, Cơ hội, Sự hợp lý hóa", "Áp lực tài chính, Lòng tham cá nhân, Lỗ hổng kiểm soát", "Áp lực công việc, Khả năng công nghệ, Sự thiếu trung thực", "Ý đồ xấu, Khả năng thực hiện, Sự biện hộ tâm lý"],
+    correct: [0]
+  },
+   // Câu 7
+   {
+    type: "single",
+    question: "Yếu tố nào sau đây thường là nguồn gốc của "Áp lực đối với ban quản lý" dẫn đến gian lận báo cáo tài chính?",
+    options: ["Các chỉ tiêu hiệu suất và chương trình thưởng quá khắc nghiệt hoặc phi thực tế", "Áp lực nợ nần cá nhân do thói quen cờ bạc", "Sự oán giận do bị bỏ qua cơ hội thăng chức trong công ty", "Sự thiếu phân chia trách nhiệm giữa các phòng ban"],
+    correct: [0]
+  },
+   // Câu 8
+   {
+    type: "single",
+    question: "Theo báo cáo ACFE 2026, loại hình gian lận nghề nghiệp nào phổ biến nhất nhưng có mức thiệt hại trung bình thấp nhất?",
+    options: ["Biển thủ tài sản", "Tham nhũng", "Gian lận báo cáo tài chính", "Thông đồng"],
+    correct: [0]
+  },
+       // Câu 9
+   {
     type: "multiple",
-    question: "Trong các số sau, số nào là số chẵn?",
-    options: ["2", "3", "4", "7"],
-    correct: [0, 2]
+    question: "Theo mô hình lý thuyết của Donald Cressey, một cơ hội hoàn chỉnh cho phép thủ phạm trục lợi thành công bắt buộc phải bao gồm những hoạt động nào sau đây?",
+    options: ["Trực tiếp thực hiện hành vi chiếm đoạt tài sản hoặc trình bày sai lệch thông tin", "Che giấu hành vi sai phạm bằng các thủ thuật kế toán để tránh bị hệ thống phát hiện", "Biện minh tâm lý để thuyết phục bản thân rằng hành vi đó là hoàn toàn hợp lý", "Chuyển đổi tài sản hoặc thông tin chiếm đoạt thành lợi ích cá nhân sử dụng được"],
+    correct: [0, 1, 3]
   },
-  {
-    type: "single",
-    question: "Đây là câu hỏi mẫu cuối cùng — vui lòng thay bằng nội dung chương học thật.",
-    options: ["Đáp án A", "Đáp án B (đúng)", "Đáp án C", "Đáp án D"],
-    correct: [1]
+       // Câu 10
+   {
+    type: "multiple",
+    question: "Theo Báo cáo ACFE 2026, nhận định nào sau đây là đúng khi nói về mối tương quan giữa chức vụ của thủ phạm và mức độ thiệt hại của các vụ gian lận nghề nghiệp?",
+    options: ["Các vụ gian lận do nhân viên và cấp quản lý thực hiện là phổ biến nhất, mỗi nhóm đều chiếm 41% trong tổng số ca được báo cáo", "Gian lận do nhóm chủ sở hữu/giám đốc điều hành thực hiện ít phổ biến nhất (chỉ chiếm 16% số ca) nhưng lại gây ra mức thiệt hại trung bình lớn nhất", "Nhóm nhân viên gây ra mức thiệt hại trung bình là 125.000 USD do có ưu thế tiếp cận hệ thống nhập liệu hàng ngày", "Có mối liên hệ tỷ lệ thuận rõ rệt giữa cấp bậc chức vụ của thủ phạm với mức độ tổn thất tài chính: thủ phạm có cấp bậc quản lý càng cao thì thiệt hại gây ra cho doanh nghiệp càng khốc liệt"],
+    correct: [0, 1, 3]
   }
 ];
 

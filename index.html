@@ -494,10 +494,10 @@
    ============================================================ */
 const CONFIG = {
   // Mật khẩu để sinh viên truy cập bài làm (giảng viên cung cấp cho SV trong buổi thi)
-  password: "0808",
+  password: "1208",
 
   // Thời gian tối đa cho MỖI câu hỏi (đơn vị: giây)
-  timePerQuestion: 45,
+  timePerQuestion: 40,
 
   // true = sinh viên có thể bấm "Câu tiếp theo" để qua câu sớm nếu đã trả lời xong
   //        (vẫn tự động chuyển câu khi hết giờ dù có bấm hay không)
@@ -510,23 +510,24 @@ const CONFIG = {
 
   // Mã đề: đổi chuỗi này (vd sang "de-thi-02") khi đổi bộ câu hỏi cho chương khác,
   // để "làm mới" giới hạn 1 lần/thiết bị đang lưu trên trình duyệt của mã đề cũ.
-  examId: "B01",
+  examId: "B02",
 
   // Link Web App (Google Apps Script) để tự động gửi điểm về Google Sheet ngay khi SV nộp bài.
   // Để trống "" nếu chưa thiết lập — công cụ vẫn chạy bình thường, chỉ không gửi điểm tự động.
   scoreWebhookUrl: "https://script.google.com/macros/s/AKfycbxuH9oSwAMGKxJx-zpUENFElJgsHeTXS7jDLntofJXGUPGnExkz5qaMNvHk8rhm3OGj/exec",
 
   // Nhãn buổi học, sẽ hiển thị trong cột "Buổi" của Google Sheet kết quả (vd "Buổi 2", "Buổi 7")
-  buoiHoc: "Buổi 1",
+  buoiHoc: "Buổi 2",
 
   // Danh sách LỚP HỌC PHẦN để sinh viên chọn ở màn hình đầu tiên (thay vì gõ tay).
   // Sửa danh sách bên dưới cho đúng với các lớp bạn đang dạy — mỗi lớp 1 dòng,
   // đặt trong dấu ngoặc kép, cách nhau bằng dấu phẩy. Có thể thêm/bớt tuỳ ý.
   classList: [
-    "DH47AC01",
-    "DH47AC02",
-    "DH47KT01",
-    "DH47KT02",
+    "DHKT20C",
+    "DHKT20C_TCTA",
+    "DHKT20A",
+    "DH18TT_HL_N1",
+    "DH18TT_HL",
   ],
 };
 
@@ -544,126 +545,125 @@ const CONFIG = {
    bên dưới rồi sửa nội dung.
    ============================================================ */
 const QUESTIONS = [
-
-  {
+ {
     type: "single",
-    question: "Rủi ro được định nghĩa là gì?",
+    question: "Theo mô hình xử lý dữ liệu của Hệ thống thông tin kế toán, hành vi thay đổi hoặc làm giả dữ liệu trước hoặc trong quá trình nhập vào hệ thống được định nghĩa là loại gian lận nào?",
     options: [
-      "Những sự kiện xảy ra ngoài kỳ vọng gây ảnh hưởng tiêu cực đến việc đạt được các mục tiêu của tổ chức",
-      "Những sự kiện xảy ra đúng kỳ vọng và gây ảnh hưởng tích cực đến việc vận hành doanh nghiệp",
-      "Những sự cố phá hoại hệ thống thông tin bắt buộc phải do con người cố ý thực hiện",
-      "Sự suy giảm lợi nhuận của doanh nghiệp do các yếu tố cạnh tranh lành mạnh trên thị trường",
+      "Gian lận đầu vào",
+      "Gian lận dữ liệu",
+      "Gian lận xử lý",
+      "Gian lận đầu ra",
     ],
     correct: [0]
   },
 
-  {
+ {
     type: "single",
-    question: "Trong tuần làm việc đầu tiên, một nhân viên bán hàng mới do chưa được đào tạo kỹ về chính sách giá đã tính sai chiết khấu cho một khách hàng lớn, làm công ty thiệt hại doanh thu. Sự kiện này thuộc nguồn gốc rủi ro nào?",
+    question: "Lợi dụng quyền hạn admin của mình, một chuyên viên quản trị hệ thống của công ty tài chính đã âm thầm cài đặt một chương trình khai thác tiền mã hóa chạy ngầm trên hệ thống máy chủ dịch vụ của doanh nghiệp để đào coin cá nhân ngoài giờ làm việc. Hành vi này là loại gian lận nào?",
     options: [
-      "Hành vi vô ý",
-      "Hành vi cố ý",
-      "Thảm họa thiên nhiên và chính trị",
-      "Lỗi phần mềm và sự cố thiết bị",
+      "Gian lận đầu vào",
+      "Gian lận chỉ dẫn máy tính",
+      "Gian lận xử lý",
+      "Gian lận đầu ra",
+    ],
+    correct: [2]
+  },
+
+{
+    type: "single",
+    question: "Nhận định nào sau đây phản ánh chính xác nhất về đặc điểm của gian lận đầu vào?",
+    options: [
+      "Đây là phương pháp đơn giản nhất, phổ biến nhất để thực hiện gian lận máy tính và đòi hỏi thủ phạm có rất ít kỹ năng công nghệ",
+      "Đây là loại gian lận phức tạp nhất và đòi hỏi thủ phạm phải có kỹ năng lập trình chuyên sâu để sửa đổi mã nguồn",
+      "Đây là hình thức gian lận tác động trực tiếp vào việc chiếm dụng năng lực xử lý (CPU/RAM) của máy chủ hệ thống",
+      "Đây là hình thức đánh cắp các tệp thông tin hiển thị trên màn hình hoặc báo cáo kết xuất của máy tính",
     ],
     correct: [0]
   },
 
-  {
+{
     type: "single",
-    question: "Hành vi gian lận được định nghĩa là gì?",
+    question: "Hành vi sao chép phần mềm có bản quyền một cách bất hợp pháp hoặc tự ý sử dụng phần mềm của tổ chức khi chưa được sự cho phép/ủy quyền được phân loại vào nhóm gian lận máy tính nào?",
     options: [
-      "Hành vi cố ý tuyên bố sai sự thật hoặc trình bày sai lệch một cách trọng yếu nhằm đạt được sự tin cậy của người khác, gây tổn thất cho cá nhân hoặc tổ chức",
-      "Những sai sót ngẫu nhiên trong việc hạch toán kế toán gây ra sự sai lệch trên báo cáo tài chính",
-      "Việc lạm dụng tài nguyên của tổ chức cho mục đích cá nhân nhưng không gây ra thiệt hại tài chính",
-      "Những quyết định kinh doanh sai lầm của ban quản lý làm suy giảm giá trị cổ phiếu của công ty",
+      "Gian lận chỉ dẫn máy tính",
+      "Gian lận dữ liệu",
+      "Gian lận xử lý",
+      "Gian lận đầu ra",
     ],
     correct: [0]
   },
 
-  {
+{
     type: "single",
-    question: "Gian lận nghề nghiệp được phân loại gồm:",
+    question: "Kỹ thuật nào sau đây được phân loại vào nhóm Tấn công và lạm dụng máy tính?",
     options: [
-      "Biển thủ tài sản, Gian lận báo cáo tài chính, Tham nhũng",
-      "Gian lận đầu vào, gian lận xử lý, gian lận đầu ra",
-      "Thảm họa thiên nhiên, lỗi phần mềm, hành vi cố ý",
-      "Áp lực, Cơ hội, Sự hợp lý hóa",
+      "Tấn công từ chối dịch vụ (DoS/DDoS)",
+      "Tạo giả cảnh (Pretexting)",
+      "Phần mềm tống tiền (Ransomware)",
+      "Nhìn lén qua vai (Shoulder surfing)",
     ],
     correct: [0]
   },
 
-  {
+{
     type: "single",
-    question: "Ông Bình là Trưởng phòng mua sắm của một công ty sản xuất. Ông tự thành lập một công ty dịch vụ 'vỏ bọc' (đứng tên một người bạn), hàng tháng tự lập và duyệt các hóa đơn thanh toán cho dịch vụ tư vấn không có thực để chuyển tiền từ tài khoản công ty sang công ty này. Hành vi của ông Bình thuộc nhóm gian lận nào?",
+    question: "Kỹ thuật nào sau đây được phân loại vào nhóm Tấn công và lạm dụng máy tính?",
     options: [
-      "Biển thủ tài sản",
-      "Tham nhũng",
-      "Gian lận báo cáo tài chính",
-      "Gian lận hệ thống",
-    ],
-    correct: [1]
-  },
-
-  {
-    type: "single",
-    question: "Theo lý thuyết tam giác gian lận, hành vi gian lận chỉ xảy ra khi hội tụ đủ 3 yếu tố nào sau đây?",
-    options: [
-      "Áp lực, Cơ hội, Sự hợp lý hóa",
-      "Áp lực tài chính, Lòng tham cá nhân, Lỗ hổng kiểm soát",
-      "Áp lực công việc, Khả năng công nghệ, Sự thiếu trung thực",
-      "Ý đồ xấu, Khả năng thực hiện, Sự biện hộ tâm lý",
+      "Tấn công từ chối dịch vụ (DoS/DDoS)",
+      "Tạo giả cảnh (Pretexting)",
+      "Phần mềm tống tiền (Ransomware)",
+      "Nhìn lén qua vai (Shoulder surfing)",
     ],
     correct: [0]
   },
 
-  {
+{
     type: "single",
-    question: "Yếu tố nào sau đây thường là nguồn gốc của 'Áp lực đối với ban quản lý' dẫn đến gian lận báo cáo tài chính?",
+    question: "Kỹ thuật thao túng tâm lý nào liên quan đến việc dựng lên một kịch bản giả tạo nhưng có tính hợp lý cao nhằm mục đích tạo dựng sự tin cậy trong tâm trí nạn nhân, từ đó lừa họ tiết lộ các thông tin nhạy cảm?",
     options: [
-      "Các chỉ tiêu hiệu suất và chương trình thưởng quá khắc nghiệt hoặc phi thực tế",
-      "Áp lực nợ nần cá nhân do thói quen cờ bạc",
-      "Sự oán giận do bị bỏ qua cơ hội thăng chức trong công ty",
-      "Sự thiếu phân chia trách nhiệm giữa các phòng ban",
+      "Tạo giả cảnh (Pretexting)",
+      "Lừa đảo qua mạng (Phishing)",
+      "Điều hướng trang web (Pharming)",
+      "Bám đuôi vật lý (Piggybacking)",
     ],
     correct: [0]
   },
 
-  {
-    type: "single",
-    question: "Theo báo cáo ACFE 2026, loại hình gian lận nghề nghiệp nào phổ biến nhất nhưng có mức thiệt hại trung bình thấp nhất?",
-    options: [
-      "Biển thủ tài sản",
-      "Tham nhũng",
-      "Gian lận báo cáo tài chính",
-      "Thông đồng",
-    ],
-    correct: [0]
-  },
-
-  {
+{
     type: "multiple",
-    question: "Theo mô hình lý thuyết của Donald Cressey, một cơ hội hoàn chỉnh cho phép thủ phạm trục lợi thành công bắt buộc phải bao gồm những hoạt động nào sau đây?",
+    question: "Số lượng các vụ việc, mức độ thiệt hại tài chính và sự tinh vi của các thủ đoạn gian lận máy tính ngày càng gia tăng nhanh chóng vì những lý do cốt lõi nào sau đây?",
     options: [
-      "Trực tiếp thực hiện hành vi chiếm đoạt tài sản hoặc trình bày sai lệch thông tin",
-      "Che giấu hành vi sai phạm bằng các thủ thuật kế toán để tránh bị hệ thống phát hiện",
-      "Biện minh tâm lý để thuyết phục bản thân rằng hành vi đó là hoàn toàn hợp lý",
-      "Chuyển đổi tài sản hoặc thông tin chiếm đoạt thành lợi ích cá nhân sử dụng được",
+      "Tốc độ tàn phá của các cuộc tấn công diễn ra cực kỳ nhanh và thủ phạm có khả năng xóa bỏ các dấu vết phạm tội một cách nhanh chóng",
+      "Bản chất các cuộc gian lận công nghệ rất khó bị phát hiện và ngăn chặn kịp thời hơn so với gian lận truyền thống",
+      "Hệ thống mạng của tổ chức ngày càng mở rộng và gia tăng đáng kể các điểm truy cập tạo cơ hội cho kẻ tấn công",
+      "Sự phổ biến của máy tính cá nhân khiến việc kiểm soát quyền truy cập vật lý trở nên khó khăn hơn, đồng thời người dùng thường thiếu nhận thức đầy đủ về an toàn thông tin ",
+    ],
+    correct: [0, 1, 2, 3]
+  },
+
+{
+    type: "multiple",
+    question: "Những hành vi nào sau đây được phân loại chính xác vào nhóm Gian lận chỉ dẫn máy tính?",
+    options: [
+      "Sửa đổi, can thiệp trái phép vào chương trình phần mềm hoạt động của doanh nghiệp để hệ thống tự chạy sai lệch theo ý đồ của thủ phạm",
+      "Sử dụng trái phép tài khoản hệ thống của công ty để chạy dịch vụ xử lý dữ liệu hoặc đào tiền ảo cá nhân ngoài giờ làm việc",
+      "Tự phát triển các đoạn mã chương trình/mã độc hại để đưa vào hệ thống nhằm thực hiện một hoạt động không được tổ chức ủy quyền",
+      "Sao chép và phân phối trái phép các phần mềm có bản quyền của doanh nghiệp",
     ],
     correct: [0, 1, 3]
   },
 
-  {
+{
     type: "multiple",
-    question: "Theo Báo cáo ACFE 2026, nhận định nào sau đây là đúng khi nói về mối tương quan giữa chức vụ của thủ phạm và mức độ thiệt hại của các vụ gian lận nghề nghiệp?",
+    question: "Những chính sách nào sau đây giúp phòng ngừa và giảm thiểu tối đa rủi ro bị tấn công thao túng tâm lý?",
     options: [
-      "Các vụ gian lận do nhân viên và cấp quản lý thực hiện là phổ biến nhất, mỗi nhóm đều chiếm 41% trong tổng số ca được báo cáo",
-      "Gian lận do nhóm chủ sở hữu/giám đốc điều hành thực hiện ít phổ biến nhất (chỉ chiếm 16% số ca) nhưng lại gây ra mức thiệt hại trung bình lớn nhất",
-      "Nhóm nhân viên gây ra mức thiệt hại trung bình là 125.000 USD do có ưu thế tiếp cận hệ thống nhập liệu hàng ngày",
-      "Có mối liên hệ tỷ lệ thuận rõ rệt giữa cấp bậc chức vụ của thủ phạm với mức độ tổn thất tài chính: thủ phạm có cấp bậc quản lý càng cao thì thiệt hại gây ra cho doanh nghiệp càng khốc liệt",
+      "Tuyệt đối không cho phép bất kỳ ai đi theo qua cửa bảo mật giới hạn; đồng thời huấn luyện nhân viên cảnh giác với người lạ cố gắng tiếp cận thông qua họ",
+      "Quy định nhân viên tuyệt đối không bao giờ chia sẻ tài khoản, mật khẩu hoặc thực hiện đăng nhập hộ cho người khác trên hệ thống máy tính của doanh nghiệp",
+      "Huấn luyện nhân viên không cung cấp bất kỳ thông tin nhạy cảm nào qua điện thoại hoặc email khi chưa được xác minh danh tính người yêu cầu",
+      "Bắt buộc cài đặt đồng thời tối thiểu từ hai đến ba phần mềm diệt virus khác nhau trên cùng một máy tính làm việc để tự động quét và chặn đứng các cuộc gọi lừa đảo",
     ],
-    correct: [0, 1, 3]
-  }
+    correct: [0, 1, 2]
+  },
 ];
 
 /* ============================================================

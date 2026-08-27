@@ -494,7 +494,7 @@
    ============================================================ */
 const CONFIG = {
   // Mật khẩu để sinh viên truy cập bài làm (giảng viên cung cấp cho SV trong buổi thi)
-  password: "1208",
+  password: "2726",
 
   // Thời gian tối đa cho MỖI câu hỏi (đơn vị: giây)
   timePerQuestion: 40,
@@ -510,14 +510,14 @@ const CONFIG = {
 
   // Mã đề: đổi chuỗi này (vd sang "de-thi-02") khi đổi bộ câu hỏi cho chương khác,
   // để "làm mới" giới hạn 1 lần/thiết bị đang lưu trên trình duyệt của mã đề cũ.
-  examId: "B02",
+  examId: "B04",
 
   // Link Web App (Google Apps Script) để tự động gửi điểm về Google Sheet ngay khi SV nộp bài.
   // Để trống "" nếu chưa thiết lập — công cụ vẫn chạy bình thường, chỉ không gửi điểm tự động.
   scoreWebhookUrl: "https://script.google.com/macros/s/AKfycbxuH9oSwAMGKxJx-zpUENFElJgsHeTXS7jDLntofJXGUPGnExkz5qaMNvHk8rhm3OGj/exec",
 
   // Nhãn buổi học, sẽ hiển thị trong cột "Buổi" của Google Sheet kết quả (vd "Buổi 2", "Buổi 7")
-  buoiHoc: "Buổi 2",
+  buoiHoc: "Buổi 4",
 
   // Danh sách LỚP HỌC PHẦN để sinh viên chọn ở màn hình đầu tiên (thay vì gõ tay).
   // Sửa danh sách bên dưới cho đúng với các lớp bạn đang dạy — mỗi lớp 1 dòng,
@@ -545,125 +545,174 @@ const CONFIG = {
    bên dưới rồi sửa nội dung.
    ============================================================ */
 const QUESTIONS = [
- {
+  {
     type: "single",
-    question: "Theo mô hình xử lý dữ liệu của Hệ thống thông tin kế toán, hành vi thay đổi hoặc làm giả dữ liệu trước hoặc trong quá trình nhập vào hệ thống được định nghĩa là loại gian lận nào?",
+    question: "Khung mẫu Kiểm soát nội bộ COSO (1992) phân loại các mục tiêu của kiểm soát nội bộ thành ba nhóm chính nào sau đây?",
     options: [
-      "Gian lận đầu vào",
-      "Gian lận dữ liệu",
-      "Gian lận xử lý",
-      "Gian lận đầu ra",
-    ],
-    correct: [0]
-  },
-
- {
-    type: "single",
-    question: "Lợi dụng quyền hạn admin của mình, một chuyên viên quản trị hệ thống của công ty tài chính đã âm thầm cài đặt một chương trình khai thác tiền mã hóa chạy ngầm trên hệ thống máy chủ dịch vụ của doanh nghiệp để đào coin cá nhân ngoài giờ làm việc. Hành vi này là loại gian lận nào?",
-    options: [
-      "Gian lận đầu vào",
-      "Gian lận chỉ dẫn máy tính",
-      "Gian lận xử lý",
-      "Gian lận đầu ra",
-    ],
-    correct: [2]
-  },
-
-{
-    type: "single",
-    question: "Nhận định nào sau đây phản ánh chính xác nhất về đặc điểm của gian lận đầu vào?",
-    options: [
-      "Đây là phương pháp đơn giản nhất, phổ biến nhất để thực hiện gian lận máy tính và đòi hỏi thủ phạm có rất ít kỹ năng công nghệ",
-      "Đây là loại gian lận phức tạp nhất và đòi hỏi thủ phạm phải có kỹ năng lập trình chuyên sâu để sửa đổi mã nguồn",
-      "Đây là hình thức gian lận tác động trực tiếp vào việc chiếm dụng năng lực xử lý (CPU/RAM) của máy chủ hệ thống",
-      "Đây là hình thức đánh cắp các tệp thông tin hiển thị trên màn hình hoặc báo cáo kết xuất của máy tính",
+      "Hiệu quả và hiệu năng hoạt động; Sự tin cậy của báo cáo tài chính; Sự tuân thủ luật pháp và các quy định",
+      "Mục tiêu ngắn hạn, Mục tiêu trung hạn, Mục tiêu dài hạn",
+      "Mục tiêu phòng ngừa, Mục tiêu phát hiện, Mục tiêu khắc phục",
+      "Bảo mật dữ liệu, Tính sẵn có của hệ thống, Tính toàn vẹn của quy trình xử lý dữ liệu",
     ],
     correct: [0]
   },
 
 {
     type: "single",
-    question: "Hành vi sao chép phần mềm có bản quyền một cách bất hợp pháp hoặc tự ý sử dụng phần mềm của tổ chức khi chưa được sự cho phép/ủy quyền được phân loại vào nhóm gian lận máy tính nào?",
+    question: "Trong mô hình cấu trúc hệ thống kiểm soát nội bộ, thành phần nào đóng vai trò là nền tảng cho toàn bộ hệ thống?",
     options: [
-      "Gian lận chỉ dẫn máy tính",
-      "Gian lận dữ liệu",
-      "Gian lận xử lý",
-      "Gian lận đầu ra",
+      "Môi trường kiểm soát",
+      "Các hoạt động kiểm soát",
+      "Thông tin và truyền thông",
+      "Giám sát",
     ],
     correct: [0]
   },
 
 {
     type: "single",
-    question: "Kỹ thuật nào sau đây được phân loại vào nhóm Tấn công và lạm dụng máy tính?",
+    question: "Yếu tố nào sau đây được xếp vào thành phần Môi trường kiểm soát?",
     options: [
-      "Tấn công từ chối dịch vụ (DoS/DDoS)",
-      "Tạo giả cảnh (Pretexting)",
-      "Phần mềm tống tiền (Ransomware)",
-      "Nhìn lén qua vai (Shoulder surfing)",
+      "Cam kết về tính chính trực, các giá trị đạo đức và năng lực của nhân sự trong tổ chức",
+      "Lựa chọn phương án ứng phó rủi ro",
+      "Xây dựng chiến lược quản trị rủi ro dài hạn",
+      "Đánh giá hiệu quả vận hành của toàn bộ hệ thống",
     ],
     correct: [0]
   },
 
 {
     type: "single",
-    question: "Nhân viên kế toán đã lạm dụng thông tin tài khoản quản trị đánh cắp được của Kế toán trưởng để truy cập trái phép vào hệ thống giao dịch, thực hiện lệnh chuyển khoản sang tài khoản cá nhân của mình mà không thay đổi bất kỳ dòng code phần mềm nào. Hành vi này thuộc loại gian lận nào?",
+    question: "Hoạt động nào sau đây là một ví dụ điển hình về Kiểm soát phát hiện?",
     options: [
-      "Gian lận xử lý",
-      "Gian lận chỉ dẫn máy tính",
-      "Gian lận dữ liệu",
-      "Gian lận đầu vào",
+      "Lập bảng đối chiếu số dư tiền mặt trên sổ sách kế toán với sổ phụ ngân hàng hàng tháng",
+      "Đào tạo nhận thức bảo mật định kỳ cho nhân sự mới tuyển dụng",
+      "Phân chia rõ ràng trách nhiệm giữa thủ quỹ và kế toán thanh toán tiền mặt",
+      "Tiến hành khôi phục lại dữ liệu từ tệp sao lưu sau khi máy chủ bị lỗi nguồn",
     ],
     correct: [0]
   },
 
 {
     type: "single",
-    question: "Kỹ thuật thao túng tâm lý nào liên quan đến việc dựng lên một kịch bản giả tạo nhưng có tính hợp lý cao nhằm mục đích tạo dựng sự tin cậy trong tâm trí nạn nhân, từ đó lừa họ tiết lộ các thông tin nhạy cảm?",
+    question: "Tổng Giám đốc đã trực tiếp sa thải một Trưởng phòng kinh doanh đạt doanh số cao nhất năm vì phát hiện người này có hành vi nhận hoa hồng sai quy định từ nhà cung cấp. Hành động này của Ban Giám đốc thể hiện trực tiếp sự chú trọng vào thành phần nào của kiểm soát nội bộ?",
     options: [
-      "Tạo giả cảnh (Pretexting)",
-      "Lừa đảo qua mạng (Phishing)",
-      "Điều hướng trang web (Pharming)",
-      "Bám đuôi vật lý (Piggybacking)",
+      "Môi trường kiểm soát",
+      "Đánh giá rủi ro",
+      "Các hoạt động kiểm soát",
+      "Giám sát",
+    ],
+    correct: [0]
+  },
+
+{
+    type: "single",
+    question: "Trước khi ra mắt một ứng dụng đặt tour du lịch trực tuyến mới, bộ phận Quản trị rủi ro của Công ty Y đã tiến hành họp phân tích nhằm xác định khả năng hacker tấn công đánh cắp cơ sở dữ liệu khách hàng và ước tính mức độ thiệt hại tài chính nếu sự cố xảy ra. Hoạt động phân tích này nằm trong thành phần nào dưới đây?",
+    options: [
+      "Đánh giá rủi ro",
+      "Môi trường kiểm soát",
+      "Các hoạt động kiểm soát",
+      "Giám sát",
+    ],
+    correct: [0]
+  },
+
+{
+    type: "single",
+    question: "Công ty Z quy định: Nhân viên thu ngân chỉ phụ trách tính tiền và in hóa đơn cho khách; còn việc đối chiếu số dư két tiền thực tế cuối ca với báo cáo doanh thu trên hệ thống POS phải do Tổ trưởng Tổ giám sát thực hiện. Thủ tục này thuộc thành phần nào?",
+    options: [
+      "Các hoạt động kiểm soát",
+      "Đánh giá rủi ro",
+      "Môi trường kiểm soát",
+      "Giám sát",
+    ],
+    correct: [0]
+  },
+
+{
+    type: "single",
+    question: "Công ty A xây dựng một hệ thống phần mềm ERP kết nối dữ liệu thời gian thực giữa kho vật tư và phòng kế toán. Khi lượng nguyên liệu trong kho giảm xuống dưới mức an toàn, hệ thống sẽ tự động phát cảnh báo đến Kế toán mua hàng để kịp thời lập yêu cầu mua sắm. Doanh nghiệp cũng tổ chức các cuộc họp giao ban hàng tuần để cập nhật thông tin vận hành này. Quy trình này mô tả thành phần nào dưới đây?",
+    options: [
+      "Thông tin và truyền thông",
+      "Các hoạt động kiểm soát",
+      "Đánh giá rủi ro",
+      "Giám sát",
+    ],
+    correct: [0]
+  },
+
+{
+    type: "single",
+    question: "Định kỳ hàng quý, Phòng Kiểm toán nội bộ của Ngân hàng B sẽ tiến hành lựa chọn ngẫu nhiên một danh sách các hồ sơ tín dụng đã được phê duyệt để kiểm tra độc lập xem các cán bộ tín dụng có tuân thủ đúng quy trình thẩm định rủi ro và chốt chặn phê duyệt của ngân hàng hay không. Hoạt động này thuộc thành phần nào?",
+    options: [
+      "Giám sát",
+      "Các hoạt động kiểm soát",
+      "Đánh giá rủi ro",
+      "Môi trường kiểm soát",
+    ],
+    correct: [0]
+  },
+
+{
+    type: "single",
+    question: "Nhận thấy rủi ro biến động tỷ giá ngoại tệ có thể làm ảnh hưởng lớn đến kết quả lợi nhuận doanh nghiệp trong năm tới, Ban Giám đốc Công ty D quyết định chi tiền mua các hợp đồng quyền chọn ngoại tệ tại ngân hàng để cố định chi phí mua hàng bằng ngoại tệ. Việc Ban Giám đốc lựa chọn phương án này nằm trong tiến trình của thành phần nào?",
+    options: [
+      "Đánh giá rủi ro",
+      "Môi trường kiểm soát",
+      "Các hoạt động kiểm soát",
+      "Thông tin và truyền thông",
+    ],
+    correct: [0]
+  },
+
+{
+    type: "single",
+    question: "Tập đoàn G thiết lập một đường dây nóng hoạt động 24/7 và một cổng thông tin trực tuyến cho phép nhân viên, nhà cung cấp hoặc khách hàng gửi báo cáo ẩn danh về các hành vi gian lận đạo đức trực tiếp đến Ủy ban Kiểm toán của Hội đồng quản trị. Kênh tiếp nhận và báo cáo thông tin này thuộc thành phần nào?",
+    options: [
+      "Thông tin và truyền thông",
+      "Các hoạt động kiểm soát",
+      "Môi trường kiểm soát",
+      "Giám sát",
     ],
     correct: [0]
   },
 
 {
     type: "multiple",
-    question: "Số lượng các vụ việc, mức độ thiệt hại tài chính và sự tinh vi của các thủ đoạn gian lận máy tính ngày càng gia tăng nhanh chóng vì những lý do cốt lõi nào sau đây?",
+    question: "Những thủ tục nào dưới đây thuộc về thành phần Hoạt động kiểm soát?",
     options: [
-      "Tốc độ tàn phá của các cuộc tấn công diễn ra cực kỳ nhanh và thủ phạm có khả năng xóa bỏ các dấu vết phạm tội một cách nhanh chóng",
-      "Bản chất các cuộc gian lận công nghệ rất khó bị phát hiện và ngăn chặn kịp thời hơn so với gian lận truyền thống",
-      "Hệ thống mạng của tổ chức ngày càng mở rộng và gia tăng đáng kể các điểm truy cập tạo cơ hội cho kẻ tấn công",
-      "Sự phổ biến của máy tính cá nhân khiến việc kiểm soát quyền truy cập vật lý trở nên khó khăn hơn, đồng thời người dùng thường thiếu nhận thức đầy đủ về an toàn thông tin ",
+      "Giám sát an ninh vật lý để bảo vệ tài sản và thiết lập phân quyền truy cập logic dựa trên vai trò vào cơ sở dữ liệu",
+      "Phân chia rõ ràng trách nhiệm bất kiêm nhiệm giữa 3 chức năng độc lập: Phê duyệt, Ghi chép, và Bảo quản tài sản",
+      "Thực hiện các cuộc tự đánh giá định kỳ về tính hiệu lực và khả năng vận hành của hệ thống kiểm soát",
+      "Thu thập và tạo lập thông tin chất lượng cao, có tính liên quan từ môi trường bên ngoài để phục vụ việc ra quyết định",
     ],
-    correct: [0, 1, 2, 3]
+    correct: [0, 1]
   },
 
 {
     type: "multiple",
-    question: "Những hành vi nào sau đây được phân loại chính xác vào nhóm Gian lận chỉ dẫn máy tính?",
+    question: "Theo Khung kiểm soát nội bộ COSO, để vận hành thành phần Thông tin và Truyền thông hiệu quả, doanh nghiệp cần tuân thủ những nguyên tắc cốt lõi nào?",
     options: [
-      "Sửa đổi, can thiệp trái phép vào chương trình phần mềm hoạt động của doanh nghiệp để hệ thống tự chạy sai lệch theo ý đồ của thủ phạm",
-      "Sử dụng trái phép tài khoản hệ thống của công ty để chạy dịch vụ xử lý dữ liệu hoặc đào tiền ảo cá nhân ngoài giờ làm việc",
-      "Tự phát triển các đoạn mã chương trình/mã độc hại để đưa vào hệ thống nhằm thực hiện một hoạt động không được tổ chức ủy quyền",
-      "Sao chép và phân phối trái phép các phần mềm có bản quyền của doanh nghiệp",
+      "Thu thập hoặc tự tạo ra các thông tin có chất lượng cao, có tính liên quan để hỗ trợ hoạt động của các thành phần kiểm soát khác",
+      "Truyền thông nội bộ một cách thông suốt về các mục tiêu kiểm soát, bao gồm việc cung cấp đầy đủ thông tin về trách nhiệm kiểm soát của từng nhân sự",
+      "Thực hiện kiểm toán độc lập định kỳ bởi các kiểm toán viên bên ngoài để rà soát sự tuân thủ các quy trình quản lý",
+      "Thiết lập cấu hình hệ thống tường lửa và an ninh mạng để bảo vệ hệ thống thông tin khỏi các cuộc tấn công",
+    ],
+    correct: [0, 1]
+  },
+
+{
+    type: "multiple",
+    question: "Hệ thống kiểm soát nội bộ dù thiết kế tốt đến đâu vẫn tồn tại những hạn chế cố hữu và chỉ cung cấp sự đảm bảo hợp lý cho doanh nghiệp. Những nguyên nhân nào sau đây cấu thành nên các hạn chế cố hữu này?",
+    options: [
+      "Những phán đoán sai lầm trong việc ra quyết định hoặc sai sót vô ý của con người trong quá trình vận hành hệ thống",
+      "Hành vi thông đồng gian lận giữa các cá nhân trong/ngoài tổ chức hoặc sự lạm quyền vượt qua kiểm soát của ban quản lý",
+      "Sự thay đổi quá nhanh của công nghệ thông tin và môi trường kinh doanh toàn cầu nằm ngoài tầm kiểm soát của lập trình viên",
+      "Sự hạn chế trong phân bổ nguồn lực của doanh nghiệp",
     ],
     correct: [0, 1, 3]
   },
 
-{
-    type: "multiple",
-    question: "Những chính sách nào sau đây giúp phòng ngừa và giảm thiểu tối đa rủi ro bị tấn công thao túng tâm lý?",
-    options: [
-      "Tuyệt đối không cho phép bất kỳ ai đi theo qua cửa bảo mật giới hạn; đồng thời huấn luyện nhân viên cảnh giác với người lạ cố gắng tiếp cận thông qua họ",
-      "Quy định nhân viên tuyệt đối không bao giờ chia sẻ tài khoản, mật khẩu hoặc thực hiện đăng nhập hộ cho người khác trên hệ thống máy tính của doanh nghiệp",
-      "Huấn luyện nhân viên không cung cấp bất kỳ thông tin nhạy cảm nào qua điện thoại hoặc email khi chưa được xác minh danh tính người yêu cầu",
-      "Bắt buộc cài đặt đồng thời tối thiểu từ hai đến ba phần mềm diệt virus khác nhau trên cùng một máy tính làm việc để tự động quét và chặn đứng các cuộc gọi lừa đảo",
-    ],
-    correct: [0, 1, 2]
-  },
 ];
 
 /* ============================================================
